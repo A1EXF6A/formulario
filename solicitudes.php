@@ -72,12 +72,28 @@ if ($result->num_rows == 0) {
             background-color: #f44336;
             color: white;
         }
+        .regresar {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .regresar:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Solicitudes de Cambio</h1>
+        <div class="buttons">
+                <a href="index.html" class="regresar">Regresar</a>
+            </div>
         <table>
             <thead>
                 <tr>

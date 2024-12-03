@@ -59,10 +59,10 @@ try {
     // Ejecutar la consulta
    // Si se guardó correctamente, redirigir al index con un mensaje de éxito
 if (mysqli_stmt_execute($stmt)) {
-    header("Location: index.html?mensaje=exito");
+    header("Location: formulario.html?mensaje=exito");
     exit(); // Asegúrate de detener el script después de redirigir
 } else {
-    header("Location: index.html?mensaje=error");
+    header("Location: formulario.html?mensaje=error");
     exit();
 }
 
