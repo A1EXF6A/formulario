@@ -1,0 +1,107 @@
+/* Estilo para el contenedor de solicitudes */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif; /* Puedes usar Google Fonts si prefieres */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilo para cada solicitud individual */
+.solicitud {
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el ratón sobre una solicitud */
+.solicitud:hover {
+    transform: translateY(-5px);
+}
+
+/* Título de la solicitud */
+.solicitud-titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilo para los detalles de la solicitud */
+.solicitud p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Estilo para los detalles específicos */
+.solicitud-fecha,
+.solicitud-proyecto {
+    font-weight: bold;
+}
+
+/* Estilo para la sección de archivos adjuntos */
+.solicitud-adjuntos {
+    font-style: italic;
+    color: #888;
+}
+
+/* Estilo para el tipo de solicitud */
+.solicitud-tipo {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Estilo para el mensaje de error */
+.mensaje-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    margin-top: 20px;
+}
+
+/* Estilos globales para los botones de Material Design */
+.material-icons {
+    font-family: 'Material Icons', sans-serif;
+    font-size: 24px; /* Tamaño del icono */
+    background-color: transparent;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* Efecto de hover para los botones */
+.material-icons:hover {
+    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+}
+
+/* Estilo para las acciones de cada solicitud */
+.solicitud-acciones {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 15px;
+}
+
+.solicitud-boton:active {
+    background-color: #d1d1d1;
+}
+
