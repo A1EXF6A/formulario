@@ -73,31 +73,31 @@ body {
     margin-top: 20px;
 }
 
-/* Estilos globales para los botones de Material Design */
+
 .material-icons {
     font-family: 'Material Icons', sans-serif;
-    font-size: 24px; /* Tamaño del icono */
-    background-color: transparent;
+    font-size: 24px;
+    background-color: rgb(218, 218, 218);
     border: none;
     padding: 12px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
+    min-width: 200px;
+    border-radius: 5px;
 }
 
-/* Efecto de hover para los botones */
 .material-icons:hover {
-    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+    background-color: #d1d1d1;
 }
 
-/* Estilo para las acciones de cada solicitud */
 .solicitud-acciones {
     display: flex;
-    justify-content: flex-end; /* Alinea los botones a la derecha */
-    gap: 10px; /* Espacio entre los botones */
+    justify-content: flex-end; 
+    gap: 10px; 
     margin-top: 15px;
 }
 

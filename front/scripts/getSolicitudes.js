@@ -14,7 +14,7 @@ async function cargarSolicitudes() {
         }
 
         const data = await response.json();
-        const fragment = document.createDocumentFragment(); // Crear fragmento para agregar elementos
+        const fragment = document.createDocumentFragment();
 
         data.forEach(solicitud => {
             const solicitudDiv = document.createElement('div');
@@ -32,8 +32,8 @@ async function cargarSolicitudes() {
                 <p class="solicitud-descripcion">${solicitud['des_sol']}</p>
                 <p class="solicitud-adjuntos">${solicitud['arc_sol'] ? solicitud['arc_sol'] : 'No hay archivos'}</p>
                 <div class="solicitud-acciones">
-                    <button class="solicitud-boton material-icons" aria-label="Editar">Aceptar</button>
-                    <button class="solicitud-boton material-icons" aria-label="Eliminar">Rechazar</button>
+                    <button class="solicitud-boton material-icons" data-id="${solicitud['id_sol']}" onClick="handleClick(this, 'aceptar')">Aceptar</button>
+                    <button class="solicitud-boton material-icons" data-id="${solicitud['id_sol']}" onClick="handleClick(this, 'rechazar')">Rechazar</button>
                 </div>
             `;
             fragment.appendChild(solicitudDiv);
@@ -43,14 +43,48 @@ async function cargarSolicitudes() {
         container.appendChild(fragment);
 
     } catch (error) {
-        // En caso de error, muestra un mensaje de error
         const mensajeDiv = document.getElementById('mensaje');
         mensajeDiv.innerHTML = '<div class="mensaje mensaje-error">Hubo un error al cargar las solicitudes. Por favor, inténtalo de nuevo.</div>';
         console.error('Error:', error);
     }
 }
 
-// Llamar a la función para cargar las solicitudes
+function handleClick(button, accion) {
+    const solicitudId = button.getAttribute('data-id');
+
+    manejarSolicitud(solicitudId, accion === 'aceptar');
+}
+
+function manejarSolicitud(solicitudId, aceptada) {
+    const url = `http://localhost:3000/api/respuestas`;
+
+    const data = {
+        solicitud_id: solicitudId,
+        decision: aceptada ? 'aprobado' : 'rechazado'
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud');
+            }
+
+            console.log("valiooooo")
+            return response.json();
+        })
+        .catch(error => {
+            const mensajeDiv = document.getElementById('mensaje');
+            mensajeDiv.innerHTML = '<div class="mensaje mensaje-error">Hubo un error al manejar la solicitud. Por favor, inténtalo de nuevo.</div>';
+            console.error('Error:', error);
+        });
+}
+
 cargarSolicitudes();
 
 
